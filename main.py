@@ -11,6 +11,9 @@ df = pd.read_csv('dados.csv', sep=',')
 # Geração randômica de nomes fictícios, apenas o primeiro
 df['Paciente'] = [fake.first_name() for _ in range(len(df))]
 
+# Atualizando os nomes randomizados no CSV
+df.to_csv('dados.csv', index=False)
+
 # Arredonda os valores para facilitar leitura no output
 df = df.round({'Leucocitos': 0, 'Hemacias': 1, 'Plaquetas': 0})
 
